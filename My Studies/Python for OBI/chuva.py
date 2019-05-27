@@ -1,4 +1,9 @@
-l = [int(input()) for i in range(0, int(input()))]
+#l = [int(input()) for i in range(0, int(input()))]
+n = input()
+l = []
+for i in range(0, int(n)):
+        l.append(input())
+
 
 '''
 prim = l[0]
@@ -13,7 +18,12 @@ for secao in l:
 
 print(cheias)
 '''
-
+cheias = 0
+for x in l:
+        if ((l[int(x)] < max(l[0:int(x)])) & (l[int(x)] < max(l[int(x)+1:]))):
+                cheias = cheias + 1
+print(cheias)
+'''
 maiorDir = []
 maiorEsq = []
 maior = 0
@@ -35,9 +45,9 @@ for j in range(len(l)-1, -1, -1):
         maior = l[j]
         maiorDir.append(l[j])
 
-
-for secao in l:
-    if ((secao < maiorDir[secao]) & (secao < maiorEsq[secao])):
+maiorDir.reverse()
+for secao in l[maior]:
+    if ((l[secao - 1] < maiorDir[secao - 1]) and (l[secao - 1] < maiorEsq[secao - 1])):
         cheias = cheias + 1
-
 print(cheias)
+'''
